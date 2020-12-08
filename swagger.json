@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is an simple project. It allow user reigster and list all the user who signed.",
+    "version": "1.0.0",
+    "title": "Exam",
+    "contact": {
+      "email": "conguyenvanbd@gmail.com"
+    }
+  },
+  "host": "127.0.0.1:3000",
+  "basePath": "/user",
+  "tags": [
+    {
+      "name": "User",
+      "description": "User register at here"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/create": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Create user",
+        "description": "This can only be done by the register in user.",
+        "operationId": "createUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/read": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Logs all user into the system",
+        "operationId": "AllUsers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "list all user"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "fullname": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
